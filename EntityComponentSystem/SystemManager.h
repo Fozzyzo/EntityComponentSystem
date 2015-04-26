@@ -1,16 +1,16 @@
 #pragma once
 #include <vector>
-#include "System.h"
+#include "RenderingSystem.h"
+#include "PhysicsSystem.h"
+
 class SystemManager
 {
 public:
 	SystemManager();
 	~SystemManager();
-	void AddSystem(System _system);
-	void Update(Entity _entity);
+	void Update(Entity &_entity, sf::RenderWindow &_window);
 
-private:
-	std::vector<System> systems;
-
+	RenderingSystem renderer;
+	PhysicsSystem physics;
 };
 

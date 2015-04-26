@@ -10,8 +10,5 @@ Entity::Entity()
 
 
 Entity::~Entity()
-{
-	delete transform;
-	delete graphics;
-	delete physics;
+{	
 }

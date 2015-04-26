@@ -10,15 +10,8 @@ SystemManager::~SystemManager()
 {
 }
 
-void SystemManager::AddSystem(System _system)
-{
-	systems.push_back(_system);
-}
 
-void SystemManager::Update(Entity _entity)
+void SystemManager::Update(Entity &_entity, sf::RenderWindow &_window)
 {
-	for (int i = 0; i < systems.size(); i++)
-	{
-		systems[i].Update(_entity.graphics);
-	}
+	renderer.Update(_entity, _window);
 }

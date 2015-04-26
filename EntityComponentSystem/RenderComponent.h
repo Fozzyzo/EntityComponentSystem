@@ -9,9 +9,9 @@ public:
 	RenderComponent();
 	~RenderComponent();
 
-	sf::RenderWindow &window;
 	sf::IntRect rectangle;
 	sf::CircleShape shape;
 	sf::Texture texture;
+	sf::Color color;
 };
 
