@@ -8,7 +8,7 @@ class SystemManager
 public:
 	SystemManager();
 	~SystemManager();
-	void Update(Entity &_entity, sf::RenderWindow &_window);
+	void Update(Entity *_entity, sf::RenderWindow &_window, float _dt);
 
 	RenderingSystem renderer;
 	PhysicsSystem physics;

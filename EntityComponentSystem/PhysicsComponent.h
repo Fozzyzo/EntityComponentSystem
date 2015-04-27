@@ -8,5 +8,7 @@ public:
 	PhysicsComponent();
 	~PhysicsComponent();
 	sf::Vector2f velocity;
+	float mass;
+	float elasticityMultiplier;
 };
 

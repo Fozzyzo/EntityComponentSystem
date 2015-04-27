@@ -50,3 +50,10 @@ Debug/EntityComponentSystem.exe
 EntityComponentSystem/Debug/EntityCo.A67C50B5.tlog/cl.command.1.tlog
 *.pdb
 *.tlog
+*.exe
+*.ilk
+EntityComponentSystem.opensdf
+*.sdf
+EntityComponentSystem.v12.suo
+*.obj
+EntityComponentSystem/Debug/EntityCo.A67C50B5.tlog/CL.write.1.tlog

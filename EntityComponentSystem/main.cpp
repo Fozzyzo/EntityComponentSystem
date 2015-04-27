@@ -22,13 +22,22 @@ int main()
 	
 	SystemManager systemManager;
 	isKeyPressed = false;
-	systemManager.renderer.setPosition(ball, sf::Vector2f(rand() % 40 - 760, rand() % 40 - 560));
+	/*systemManager.renderer.setPosition(ball, sf::Vector2f(rand() % 40 - 760, rand() % 40 - 560));
 	systemManager.renderer.setTexture(ball, image);
 	systemManager.renderer.setShape(ball, sf::CircleShape(32, 20));
-	systemManager.renderer.setColor(ball, sf::Color::Blue);
+	systemManager.renderer.setColor(ball, sf::Color::Blue);*/
+
+	sf::Time currentTime;
+
+	sf::Clock deltaClock;
+	float dt;
 
 	while (window.isOpen())
 	{
+
+		currentTime = deltaClock.getElapsedTime();		
+		dt = currentTime.asSeconds();
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -50,10 +59,11 @@ int main()
 
 					entities.push_back(new PhysicBall);
 
-					systemManager.renderer.setPosition(*entities.back(), sf::Vector2f(rand() % 40 - 760, rand() % 40 - 560));
-					systemManager.renderer.setTexture(*entities.back(), image);
-					systemManager.renderer.setShape(*entities.back(), sf::CircleShape(32, 20));
-					systemManager.renderer.setColor(*entities.back(), sf::Color::Blue);
+ 					systemManager.renderer.setPosition(entities.back(), sf::Vector2f(rand() % 760 - 40, rand() % 560 - 40));
+					systemManager.renderer.setTexture(entities.back(), image);
+					systemManager.renderer.setShape(entities.back(), sf::CircleShape(32, 20));
+					systemManager.renderer.setColor(entities.back(), sf::Color::Blue);
+					systemManager.physics.setElasticity(entities.back(), 0.80f);
 					std::cout << "Ball added!" << std::endl;								
 				}
 
@@ -74,16 +84,20 @@ int main()
 
 		for (int i = 0; i < entities.size(); i++)
 		{
-			systemManager.Update(*entities[i], window);
+			systemManager.Update(entities[i], window, dt);
 		}
 		
 		window.display();
+
+		deltaClock.restart();
 	}
 
 	for (int i = 0; i < entities.size(); i++)
 	{
 		delete entities[i];
 	}
+
+	
 
 	return 0;
 }
