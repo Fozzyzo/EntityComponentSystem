@@ -11,8 +11,11 @@ SystemManager::~SystemManager()
 }
 
 
-void SystemManager::Update(Entity *_entity, sf::RenderWindow &_window, float _dt)
+void SystemManager::Update(World *_world, sf::RenderWindow &_window)
 {
-	renderer.Update(_entity, _window);
-	physics.Update(_entity, _dt);
+	for (int i = 0; i < _world->getEntities().size(); i++)
+	{
+		renderer.Update(_world->getEntity(i), _window);
+		physics.Update(_world->getEntity(i), _world);
+	}
 }

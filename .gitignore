@@ -57,3 +57,5 @@ EntityComponentSystem.opensdf
 EntityComponentSystem.v12.suo
 *.obj
 EntityComponentSystem/Debug/EntityCo.A67C50B5.tlog/CL.write.1.tlog
+*.ilk
+*.tlog

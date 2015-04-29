@@ -10,5 +10,6 @@ public:
 	sf::Vector2f velocity;
 	float mass;
 	float elasticityMultiplier;
+	float rotationalFrequency;
 };
 

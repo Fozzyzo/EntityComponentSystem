@@ -12,7 +12,8 @@ public:
 	~TransformComponent();
 
 	sf::Vector2f position;
-	float rotation;
 	sf::Vector2f scale;
+	float rotation;
+	float perimeter;
 };
 

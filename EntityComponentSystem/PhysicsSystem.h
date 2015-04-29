@@ -1,6 +1,7 @@
 #pragma once
 #include "System.h"
 #include "PhysicsComponent.h"
+#include "World.h"
 
 //acceleration of gravity
 #define g 70
@@ -15,11 +16,13 @@ public:
 	/*Sets the elasticity multiplier for an object on impact, normally ranging from 0 to 1
 	for 1 being fully elastic*/	
 	void setElasticity(Entity *_entity, float _elasticityMultiplier);
-	void Update(Entity *_entity, float _dt);
+	void Update(Entity *_entity, World* _world);
 
 private:
 	
 	void SimulatePhysics(Entity *_entity, float _dt);
-	void GroundCollisionDetection(Entity *_entity);
+	void GroundCollisionDetection(Entity *_entity, float dt);
+	void WallCollisionDetection(Entity *_entity);
+	void EntityCollisionDetection(Entity *_entity, World *_world);
 };
 

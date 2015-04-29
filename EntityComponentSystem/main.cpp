@@ -12,32 +12,22 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(800, 600), "ECS / Physics simulation", sf::Style::Default, settings);
 	sf::Image image;
 	image.loadFromFile("smile.png");
-
+	World* world = new World;
+	sf::Vector2f randPos;
 	bool isKeyPressed;
-	PhysicBall ball;
-
-	sf::Vector2f testVec;
-
+	sf::CircleShape tempShape = sf::CircleShape(30, 20);
 	std::vector<Entity*> entities;
 	
 	SystemManager systemManager;
 	isKeyPressed = false;
-	/*systemManager.renderer.setPosition(ball, sf::Vector2f(rand() % 40 - 760, rand() % 40 - 560));
-	systemManager.renderer.setTexture(ball, image);
-	systemManager.renderer.setShape(ball, sf::CircleShape(32, 20));
-	systemManager.renderer.setColor(ball, sf::Color::Blue);*/
 
-	sf::Time currentTime;
-
-	sf::Clock deltaClock;
-	float dt;
+	
 
 	while (window.isOpen())
 	{
 
-		currentTime = deltaClock.getElapsedTime();		
-		dt = currentTime.asSeconds();
-
+		world->UpdateTime();
+	
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -57,13 +47,16 @@ int main()
 				{
                		isKeyPressed = true;
 
-					entities.push_back(new PhysicBall);
+					world->addEntity(new PhysicBall);
 
- 					systemManager.renderer.setPosition(entities.back(), sf::Vector2f(rand() % 760 - 40, rand() % 560 - 40));
-					systemManager.renderer.setTexture(entities.back(), image);
-					systemManager.renderer.setShape(entities.back(), sf::CircleShape(32, 20));
-					systemManager.renderer.setColor(entities.back(), sf::Color::Blue);
-					systemManager.physics.setElasticity(entities.back(), 0.80f);
+					randPos = sf::Vector2f(sf::Vector2f(rand() % 760 - 40, rand() % 560 - 40));
+
+
+ 					systemManager.renderer.setPosition(world->getLastEntity(), randPos);
+					systemManager.renderer.setTexture(world->getLastEntity(), image);
+					systemManager.renderer.setShape(world->getLastEntity(), tempShape);
+					systemManager.renderer.setColor(world->getLastEntity(), sf::Color::Blue);
+					systemManager.physics.setElasticity(world->getLastEntity(), 0.7f);
 					std::cout << "Ball added!" << std::endl;								
 				}
 
@@ -82,14 +75,10 @@ int main()
 
 		window.clear();
 
-		for (int i = 0; i < entities.size(); i++)
-		{
-			systemManager.Update(entities[i], window, dt);
-		}
-		
-		window.display();
-
-		deltaClock.restart();
+		systemManager.Update(world, window);
+	
+ 		window.display();
+		world->RestartTime();
 	}
 
 	for (int i = 0; i < entities.size(); i++)
@@ -97,7 +86,7 @@ int main()
 		delete entities[i];
 	}
 
-	
+	delete world;
 
 	return 0;
 }
