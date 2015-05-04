@@ -1,9 +1,16 @@
-﻿Build started 29.4.2015 13:56:42.
+﻿Build started 4.5.2015 15:26:14.
      1>Project "C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\EntityComponentSystem\EntityComponentSystem.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsSystem.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsSystem.cpp SystemManager.cpp main.cpp
          PhysicsSystem.cpp
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\physicssystem.cpp(59): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+         Compiling...
+         main.cpp
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(88): warning C4018: '<' : signed/unsigned mismatch
+         SystemManager.cpp
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\systemmanager.cpp(16): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\lib" "sfml-window-d.lib" "sfml-system-d.lib" "sfml-graphics-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.lib" /MACHINE:X86 Debug\Component.obj
          Debug\Entity.obj
@@ -22,4 +29,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.39
+Time Elapsed 00:00:01.80

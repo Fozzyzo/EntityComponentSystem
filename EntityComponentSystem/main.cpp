@@ -21,13 +21,11 @@ int main()
 	SystemManager systemManager;
 	isKeyPressed = false;
 
-	
-
 	while (window.isOpen())
 	{
 
-		world->UpdateTime();
-	
+		
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -73,7 +71,13 @@ int main()
 			}
 		}
 
+		
 		window.clear();
+
+		world->UpdateTime();
+
+		if (world->getDt() > 0.001)
+		std::cout << "DeltaTime: " << world->getDt() << std::endl;
 
 		systemManager.Update(world, window);
 	

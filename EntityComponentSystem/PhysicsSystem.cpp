@@ -36,9 +36,10 @@ void PhysicsSystem::SimulatePhysics(Entity *_entity, float _dt)
 
 void PhysicsSystem::GroundCollisionDetection(Entity *_entity, float dt)
 {
-	if (_entity->transform->position.y > 600 - _entity->graphics->shape.getRadius() * 2
-		&& _entity->physics->velocity.y > 0)
+	if (_entity->transform->position.y >= 600 - _entity->graphics->shape.getRadius() * 2
+		&& _entity->physics->velocity.y >= 0)
 	{
+		_entity->transform->position.y = 600 - _entity->graphics->shape.getRadius() * 2;
 		_entity->physics->velocity.y = -_entity->physics->velocity.y * 
 										_entity->physics->elasticityMultiplier;
 	}
@@ -54,9 +55,13 @@ void PhysicsSystem::WallCollisionDetection(Entity *_entity)
 	}
 }
 
+
 void PhysicsSystem::EntityCollisionDetection(Entity* _entity, World *_world)
 {
- 
+	for (int i = 0; i < _world->entities.size(); ++i)
+	{
+		if(_entity->transform->position > _world->entities[i]->transform->position)
+	}
 }
 
 

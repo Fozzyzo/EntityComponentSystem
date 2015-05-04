@@ -4,7 +4,7 @@
 #include "World.h"
 
 //acceleration of gravity
-#define g 70
+#define g 10
 #define PI 3.14159265359
 class PhysicsSystem :
 	public System
@@ -20,6 +20,7 @@ public:
 
 private:
 	
+	void CountNewVelocities(Entity *_entity1, Entity *_entity2);
 	void SimulatePhysics(Entity *_entity, float _dt);
 	void GroundCollisionDetection(Entity *_entity, float dt);
 	void WallCollisionDetection(Entity *_entity);
