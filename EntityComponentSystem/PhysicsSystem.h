@@ -4,7 +4,7 @@
 #include "World.h"
 
 //acceleration of gravity
-#define g 10
+#define g 500000
 #define PI 3.14159265359
 class PhysicsSystem :
 	public System
@@ -25,5 +25,7 @@ private:
 	void GroundCollisionDetection(Entity *_entity, float dt);
 	void WallCollisionDetection(Entity *_entity);
 	void EntityCollisionDetection(Entity *_entity, World *_world);
+
+	sf::Vector2f normal;
 };
 

@@ -1,32 +1,17 @@
-﻿Build started 4.5.2015 15:26:14.
+﻿Build started 6.5.2015 13:54:49.
      1>Project "C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\EntityComponentSystem\EntityComponentSystem.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsSystem.cpp SystemManager.cpp main.cpp
-         PhysicsSystem.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BoundingCircle.cpp TransformComponent.cpp
+         TransformComponent.cpp
+         BoundingCircle.cpp
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\transformcomponent.h(13): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\transformcomponent.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\boundingcircle.cpp(14): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\boundingcircle.cpp(15): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\boundingcircle.cpp(17): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
          Generating Code...
-         Compiling...
-         main.cpp
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(50): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(88): warning C4018: '<' : signed/unsigned mismatch
-         SystemManager.cpp
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\systemmanager.cpp(16): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\lib" "sfml-window-d.lib" "sfml-system-d.lib" "sfml-graphics-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.lib" /MACHINE:X86 Debug\Component.obj
-         Debug\Entity.obj
-         Debug\main.obj
-         Debug\PhysicBall.obj
-         Debug\PhysicsComponent.obj
-         Debug\PhysicsSystem.obj
-         Debug\RenderComponent.obj
-         Debug\RenderingSystem.obj
-         Debug\System.obj
-         Debug\SystemManager.obj
-         Debug\TransformComponent.obj
-         Debug\World.obj
-         EntityComponentSystem.vcxproj -> C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\Debug\EntityComponentSystem.exe
-     1>Done Building Project "C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\EntityComponentSystem\EntityComponentSystem.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\EntityComponentSystem\EntityComponentSystem.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.80
+Time Elapsed 00:00:00.84

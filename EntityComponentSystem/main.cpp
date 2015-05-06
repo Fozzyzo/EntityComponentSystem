@@ -21,10 +21,10 @@ int main()
 	SystemManager systemManager;
 	isKeyPressed = false;
 
+	//window.setFramerateLimit(60);
+
 	while (window.isOpen())
 	{
-
-		
 
 		sf::Event event;
 		while (window.pollEvent(event))
