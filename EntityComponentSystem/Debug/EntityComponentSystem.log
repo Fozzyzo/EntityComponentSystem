@@ -1,17 +1,15 @@
-﻿Build started 6.5.2015 13:54:49.
+﻿Build started 11.5.2015 15:29:22.
      1>Project "C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\EntityComponentSystem\EntityComponentSystem.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BoundingCircle.cpp TransformComponent.cpp
-         TransformComponent.cpp
-         BoundingCircle.cpp
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\transformcomponent.h(13): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\transformcomponent.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\boundingcircle.cpp(14): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\boundingcircle.cpp(15): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\boundingcircle.cpp(17): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\SFML-2.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(87): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(89): error C3867: 'sf::CircleShape::getPoint': function call missing argument list; use '&sf::CircleShape::getPoint' to create a pointer to member
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(89): error C2109: subscript requires array or pointer type
+     1>c:\users\tti13stonis\documents\github\entitycomponentsystem\entitycomponentsystem\main.cpp(111): warning C4018: '<' : signed/unsigned mismatch
      1>Done Building Project "C:\Users\tti13stonis\Documents\GitHub\EntityComponentSystem\EntityComponentSystem\EntityComponentSystem.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.84
+Time Elapsed 00:00:00.43

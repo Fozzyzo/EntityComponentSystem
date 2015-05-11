@@ -16,7 +16,7 @@ bool BoundingCircle::Intersects(BoundingCircle *_circle)
 
 	int distance = sqrt(dx * dx + dy * dy);
 
-	if (distance <= this->radius + _circle->radius)
+	if (distance >= this->radius + _circle->radius)
 		return true;
 
 	else

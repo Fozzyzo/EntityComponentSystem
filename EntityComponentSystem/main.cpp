@@ -16,12 +16,27 @@ int main()
 	sf::Vector2f randPos;
 	bool isKeyPressed;
 	sf::CircleShape tempShape = sf::CircleShape(30, 20);
+	sf::FloatRect boundingBox;
+	sf::RectangleShape line(sf::Vector2f(1000, 10));
+	line.setPosition(400, 400);
+	line.setOrigin(500, 5);
 	std::vector<Entity*> entities;
+
+	sf::Vector2f point;
 	
 	SystemManager systemManager;
 	isKeyPressed = false;
 
-	//window.setFramerateLimit(60);
+	PhysicBall* ball = new PhysicBall;
+	world->addEntity(ball);
+
+	randPos = sf::Vector2f(sf::Vector2f(rand() % 760 - 40, rand() % 560 - 40));
+
+	systemManager.renderer.setPosition(world->getLastEntity(), randPos);
+	systemManager.renderer.setTexture(world->getLastEntity(), image);
+	systemManager.renderer.setShape(world->getLastEntity(), tempShape);
+	systemManager.renderer.setColor(world->getLastEntity(), sf::Color::Blue);
+	systemManager.physics.setElasticity(world->getLastEntity(), 0.7f);
 
 	while (window.isOpen())
 	{
@@ -40,22 +55,16 @@ int main()
 			
 			case sf::Event::KeyPressed:
 
-				
-   				if (event.key.code == sf::Keyboard::Space)
+			
+				if (event.key.code == sf::Keyboard::Right)
 				{
-               		isKeyPressed = true;
 
-					world->addEntity(new PhysicBall);
+					line.rotate(0.5);
+				}
 
-					randPos = sf::Vector2f(sf::Vector2f(rand() % 760 - 40, rand() % 560 - 40));
-
-
- 					systemManager.renderer.setPosition(world->getLastEntity(), randPos);
-					systemManager.renderer.setTexture(world->getLastEntity(), image);
-					systemManager.renderer.setShape(world->getLastEntity(), tempShape);
-					systemManager.renderer.setColor(world->getLastEntity(), sf::Color::Blue);
-					systemManager.physics.setElasticity(world->getLastEntity(), 0.7f);
-					std::cout << "Ball added!" << std::endl;								
+				else if (event.key.code == sf::Keyboard::Left)
+				{
+					line.rotate(-0.5);
 				}
 
 				break;
@@ -71,7 +80,19 @@ int main()
 			}
 		}
 
-		
+	
+		boundingBox = line.getGlobalBounds();
+	
+		for (int i = 0; i < ball->graphics->shape.getPointCount(); i++)
+		{
+			point = ball->graphics->shape.getPoint[i];
+
+			if (boundingBox.contains(point))
+			{
+				ball->transform->position = sf::Vector2f(400, 100);
+			}
+		}
+
 		window.clear();
 
 		world->UpdateTime();
@@ -80,6 +101,7 @@ int main()
 		std::cout << "DeltaTime: " << world->getDt() << std::endl;
 
 		systemManager.Update(world, window);
+		window.draw(line);
 	
  		window.display();
 		world->RestartTime();
