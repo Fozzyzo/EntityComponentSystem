@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "PhysicBall.h"
+#include "ServerBall.h"
 #include "SystemManager.h"
 
 int main()
@@ -13,13 +14,17 @@ int main()
 	sf::Image image;
 	image.loadFromFile("smile.png");
 	World* world = new World;
-	sf::Vector2f randPos;
+	sf::Vector2f pos1;
+	sf::Vector2f pos2;
+
 	bool isKeyPressed;
 	sf::CircleShape tempShape = sf::CircleShape(30, 20);
 	sf::FloatRect boundingBox;
 	sf::RectangleShape line(sf::Vector2f(1000, 10));
-	line.setPosition(400, 400);
+	line.setPosition(400, 300);
 	line.setOrigin(500, 5);
+	line.rotate(90);
+
 	std::vector<Entity*> entities;
 
 	sf::Vector2f point;
@@ -28,15 +33,23 @@ int main()
 	isKeyPressed = false;
 
 	PhysicBall* ball = new PhysicBall;
+	ServerBall* serverBall = new ServerBall;
 	world->addEntity(ball);
 
-	randPos = sf::Vector2f(sf::Vector2f(rand() % 760 - 40, rand() % 560 - 40));
+	pos1 = sf::Vector2f(sf::Vector2f(185, 300));
+	pos2 = sf::Vector2f(sf::Vector2f(585, 300));
 
-	systemManager.renderer.setPosition(world->getLastEntity(), randPos);
+	systemManager.renderer.setPosition(world->getLastEntity(), pos1);
 	systemManager.renderer.setTexture(world->getLastEntity(), image);
 	systemManager.renderer.setShape(world->getLastEntity(), tempShape);
 	systemManager.renderer.setColor(world->getLastEntity(), sf::Color::Blue);
 	systemManager.physics.setElasticity(world->getLastEntity(), 0.7f);
+
+	world->addEntity(serverBall);
+	systemManager.renderer.setPosition(world->getLastEntity(), pos2);
+	systemManager.renderer.setTexture(world->getLastEntity(), image);
+	systemManager.renderer.setShape(world->getLastEntity(), tempShape);
+	systemManager.renderer.setColor(world->getLastEntity(), sf::Color::Blue);
 
 	while (window.isOpen())
 	{
@@ -53,21 +66,6 @@ int main()
 				window.close();
 				break;
 			
-			case sf::Event::KeyPressed:
-
-			
-				if (event.key.code == sf::Keyboard::Right)
-				{
-
-					line.rotate(0.5);
-				}
-
-				else if (event.key.code == sf::Keyboard::Left)
-				{
-					line.rotate(-0.5);
-				}
-
-				break;
 
 			case sf::Event::KeyReleased:
 
@@ -82,16 +80,6 @@ int main()
 
 	
 		boundingBox = line.getGlobalBounds();
-	
-		for (int i = 0; i < ball->graphics->shape.getPointCount(); i++)
-		{
-			point = ball->graphics->shape.getPoint[i];
-
-			if (boundingBox.contains(point))
-			{
-				ball->transform->position = sf::Vector2f(400, 100);
-			}
-		}
 
 		window.clear();
 

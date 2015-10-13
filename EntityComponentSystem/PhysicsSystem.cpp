@@ -23,11 +23,15 @@ void PhysicsSystem::setElasticity(Entity *_entity, float _elasticityMultiplier)
 
 void PhysicsSystem::Update(Entity *_entity, World* _world)
 {
-	GroundCollisionDetection(_entity, _world->getDt());
-	WallCollisionDetection(_entity);
-	SimulatePhysics(_entity, _world->getDt());
-	//EntityCollisionDetection(_entity, _world);
+	if (_entity->physics != NULL)
+	{
+		GroundCollisionDetection(_entity, _world->getDt());
+		WallCollisionDetection(_entity);
+		SimulatePhysics(_entity, _world->getDt());
+		//EntityCollisionDetection(_entity, _world);
+	}
 }
+	
 
 void PhysicsSystem::SimulatePhysics(Entity *_entity, float _dt)
 {	

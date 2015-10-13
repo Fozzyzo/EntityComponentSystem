@@ -17,6 +17,7 @@ void RenderingSystem::setPosition(Entity *_entity, sf::Vector2f _position)
 
 void RenderingSystem::Update(Entity *_entity , sf::RenderWindow &_window)
 {	
+	
 	if (_entity->transform->position != _entity->graphics->shape.getPosition())
 	{
 		_entity->graphics->shape.setPosition(_entity->transform->position);
